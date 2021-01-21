@@ -29,12 +29,23 @@ router.get("/", async (req, res) => {
 router.post("/", async (req, res) => {
   console.log(req)
   try{
+    User.findOne({email:req.body.email})
+    .then(user =>{
+      if(user){
+        res.json({
+          msg:'you already exist'
+        })
+      }
+      else{
       const user = await User.create(req.body);
     res.json({
       success: true,
       dbid: user._id,
       status: 201
     });
+
+      }
+    })
   } catch (err) {
     console.log(err);
     res.status(400).json({ success: false, error: err.message });
