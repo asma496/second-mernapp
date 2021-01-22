@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { ListGroup, Row, Col, Button } from "react-bootstrap";
 import axios from 'axios';
 import React from 'react';
@@ -13,6 +13,7 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 
 function Users() {
   const [state, setstate] = useState([]);
+ const history= useHistory()
   const [dummy, setdd] = useState([
     {name:'Faiza',email:'faz@gmail.com',id:1},
     {name:'Shehla',email:'shehla@gmail.com',id:2},
@@ -35,9 +36,15 @@ function Users() {
     .then((res) => {
       console.log(res.data);
       setmsg(`${id} is deleted successfully`);
-    })
-    .catch((e) => console.log(e));
+      // history.push('/users')
+      window.location='/users'
+      setOpen(false);
 
+
+    })
+    .catch((e) => {console.log(e);
+
+      })
 
   }
 
@@ -53,6 +60,7 @@ function Users() {
     <Row className="mt-5">
       <Col lg={3} md={2} sm={1} xs={1}></Col>
       <Col lg={6} md={8} sm={10} xs={10}>
+        <p>{msg}</p>
         <ListGroup>
           <ListGroup.Item variant="primary">
             <Row className="col-headers">
@@ -75,7 +83,9 @@ function Users() {
                     to={"/single-user/" + item._id}
                   >
                     View
-                  </Button>
+                  </Button>&nbsp;
+                
+                
                   <Button 
                     variant="info"
                     size="sm" 
@@ -83,7 +93,7 @@ function Users() {
                   >
                            Delete
                   </Button>
-  
+                 
       {/* <Button variant="outlined" color="primary" >
         Open alert dialog
       </Button> */}
@@ -102,10 +112,10 @@ function Users() {
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose} color="primary">
-            Disagree
+           cancel
           </Button>
           <Button onClick={()=>handleDelete(item._id)} color="primary" autoFocus>
-            Agree
+            yes
           </Button>
         </DialogActions>
       </Dialog>

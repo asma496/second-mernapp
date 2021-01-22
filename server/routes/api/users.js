@@ -33,16 +33,19 @@ router.post("/", async (req, res) => {
     .then(user =>{
       if(user){
         res.json({
+          success: false,
+          status:400,
           msg:'you already exist'
         })
       }
       else{
-      const user = await User.create(req.body);
-    res.json({
-      success: true,
-      dbid: user._id,
-      status: 201
-    });
+   User.create(req.body)
+   .then(user=>res.json({
+    success: true,
+    dbid: user._id,
+    status: 201
+
+   }))
 
       }
     })
