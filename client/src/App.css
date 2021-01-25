@@ -54,9 +54,13 @@ input[type="password"] {
 
 .bg-image {
   width: 100%;
-  height: calc(100vh - 56px);
-  background-image: url(./images/bb1.jpg);
+
+  height: calc(100vh - 350px);
+  /* background-image: url(./images/bb1.jpg); */
+  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFJlMXIV6awvh9ruS7pR2klL92i2lgpBREHg&usqp=CAU');
+
   background-size: cover;
+  /* position: fixed;  */
 }
 
 .title-text {
@@ -65,3 +69,6 @@ input[type="password"] {
   /* vertical-align: middle; */
   line-height: calc(100vh - 56px);
 }
+ .txt{
+   color: black;
+ }

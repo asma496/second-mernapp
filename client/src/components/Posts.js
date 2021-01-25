@@ -39,6 +39,8 @@ function Posts() {
             <Row className="col-headers">
               <Col>Name</Col>
               <Col>Email</Col>
+              <Col>read </Col>
+
               <Col>Actions</Col>
             </Row>
           </ListGroup.Item>
@@ -48,6 +50,8 @@ function Posts() {
               <Row>
                 <Col>{item.title}</Col>
                 <Col>{item.description}</Col>
+                <Col>{item.read}</Col>
+
                 <Col>
                 <Button 
                     variant="info"

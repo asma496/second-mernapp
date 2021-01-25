@@ -2,14 +2,19 @@ import axios from "axios";
 import React, { useState } from "react";
 import { ListGroup, Row, Col, Button } from "react-bootstrap";
 import FileBase64 from 'react-file-base64'
+ 
 
 function AddPost() {
     const [title, settitle] = useState('')
     const [description, setdescription] = useState('')
+    const [read, setread] = useState('')
+    // const [date, setdate] = useState('')
+
+
     const [img,setimg]= useState('')
     const handleSubmit=(e)=>{
         e.preventDefault()
-        let newPost = {title, description,img};
+        let newPost = {title, description,img,read};
         axios.post('http://localhost:4000/api/posts/add',newPost)
         .then(res => console.log(res))
         .catch(err=>console.log(err,'error'));
@@ -38,6 +43,20 @@ function AddPost() {
                   <input type="text" name='description' onChange={(e)=>setdescription(e.target.value)} />
                 </Col>
               </Row>
+              <Row>
+                <Col className="col-headers">read more</Col>
+                <Col>
+                  <input type="text" name='read more' onChange={(e)=>setread(e.target.value)} />
+                </Col>
+              </Row>
+              {/* <Row> */}
+                {/* <Col className="col-headers">date</Col>
+                <Col>
+                  <input type="text" name='read more' onChange={newDate('')} />
+                </Col>
+              </Row> */}
+
+
               <Row>
                 <Col className ='col-headers'>
                   image
