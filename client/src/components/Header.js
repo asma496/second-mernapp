@@ -3,8 +3,12 @@ import { Link } from "react-router-dom";
 import { Navbar, Nav } from "react-bootstrap";
 
 const Header = () => {
+
+
+
+
   return (
-    <Navbar bg="primary" variant="dark" className="">
+    <Navbar position='fixed' variant="dark" className="bg-image">
       <Navbar.Brand as={Link} to="/">
         MERN App
       </Navbar.Brand>
@@ -23,6 +27,7 @@ const Header = () => {
         </Nav.Link>
       </Nav>
     </Navbar>
+    
   );
 };
 

@@ -96,7 +96,7 @@ const handleDelete = (id)=>{
 
   return (
     <div >
-    <div className="bg-image">
+    <div className="">
       <h1 className="title-text pl-5">
         {/* <i> MERN</i> App :::. */}
        

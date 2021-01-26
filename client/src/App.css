@@ -36,7 +36,16 @@
     transform: rotate(360deg);
   }
 } */
+body{
+  width: 100%;
+   background-attachment: fixed;
+   background-repeat:no-repeat ;
+   background-position:center;
+  /* background-image: url(./images/bb1.jpg); */
+  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFJlMXIV6awvh9ruS7pR2klL92i2lgpBREHg&usqp=CAU');
 
+  background-size: cover;
+}
 .col-headers {
   font-weight: bold;
   font-size: 16px;
@@ -54,13 +63,9 @@ input[type="password"] {
 
 .bg-image {
   width: 100%;
-
-  height: calc(100vh - 350px);
-  /* background-image: url(./images/bb1.jpg); */
-  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFJlMXIV6awvh9ruS7pR2klL92i2lgpBREHg&usqp=CAU');
-
-  background-size: cover;
-  /* position: fixed;  */
+  /* position: fixed !important;  */
+  top: 0;
+  position: fixed;
 }
 
 .title-text {
