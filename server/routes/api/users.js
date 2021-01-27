@@ -120,4 +120,30 @@ router.post('/login', async (req, res) => {
 }//post
 )
 
+
+///=========logout
+router.post('/logout',(req,res)=>{
+  req.session.destroy()
+  .then(sess=>{
+    res.clearCookie("session-id");
+    res.json({
+      status: 200,
+      msg: "logout success"
+    })
+  
+  })
+  .catch(err=>{
+    res.json({
+      status: 400,
+      msg: "logout failed"
+    })
+  
+  })
+  })
+  router.post('/authcheck',(req,res)=>{
+    console.log('authcheck')
+  })
+  
+  
+
 module.exports = router;
